@@ -482,11 +482,11 @@ func (c *IPAMChecker) recordInUseIP(ip string, referrer interface{}, friendlyNam
 
 func getNodeIPs(n apiv3.Node) ([]string, error) {
 	var ips []string
-	if n.Spec.IPv4VXLANTunnelAddr != "" {
-		ip, err := normaliseIP(n.Spec.IPv4VXLANTunnelAddr)
+	if n.Spec.IPv6VXLANTunnelAddr != "" {
+		ip, err := normaliseIP(n.Spec.IPv6VXLANTunnelAddr)
 		if err != nil {
 			return nil, fmt.Errorf("failed to parse IPv4VXLANTunnelAddr (%s) of node %s: %w",
-				n.Spec.IPv4VXLANTunnelAddr, n.Name, err)
+				n.Spec.IPv6VXLANTunnelAddr, n.Name, err)
 		}
 		ips = append(ips, ip)
 	}
