@@ -31,4 +31,4 @@ require (
 	k8s.io/client-go v0.21.0-rc.0
 )
 
-replace github.com/projectcalico/libcalico-go => github.com/formy99/libcalico-go v1.7.2-0.20210729033717-67aa0ebe77dc
+replace github.com/projectcalico/libcalico-go => github.com/formy99/libcalico-go v1.7.2-0.20211020031509-eaff8f6fbb3c

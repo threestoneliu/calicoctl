@@ -490,6 +490,14 @@ func getNodeIPs(n apiv3.Node) ([]string, error) {
 		}
 		ips = append(ips, ip)
 	}
+	if n.Spec.IPv4VXLANTunnelAddr != "" {
+		ip, err := normaliseIP(n.Spec.IPv4VXLANTunnelAddr)
+		if err != nil {
+			return nil, fmt.Errorf("failed to parse IPv4VXLANTunnelAddr (%s) of node %s: %w",
+				n.Spec.IPv6VXLANTunnelAddr, n.Name, err)
+		}
+		ips = append(ips, ip)
+	}
 	if n.Spec.Wireguard != nil && n.Spec.Wireguard.InterfaceIPv4Address != "" {
 		ip, err := normaliseIP(n.Spec.Wireguard.InterfaceIPv4Address)
 		if err != nil {
